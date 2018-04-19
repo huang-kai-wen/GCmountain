@@ -1,0 +1,68 @@
+﻿/*2013-03-13  18:05*/
+/*reset.css*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,input,button,textarea,p,th,td{margin:0; padding:0;}
+img{border:0;}
+:focus{outline:0;}
+em,strong{font-style:normal; font-weight:normal;}
+h1,h2,h3,h4,h5,h6{font-size:100%; font-weight:normal;}
+input,button,textarea,select,option{font-family:inherit; font-size:inherit; font-style:inherit; font-weight:inherit;}
+input,button,textarea,select{*font-size: 100%;}
+body{line-height:1.5;}
+ol, ul{list-style:none;}
+table{border-collapse:collapse; border-spacing:0;}
+/*font-size*/
+.f12{ font-size:12px;}
+.f13{ font-size:13px;}
+.f14{ font-size:14px;}
+.f16{ font-size:16px;}
+.fb{ font-weight:bold;}
+/*float*/
+.tl{ text-align:left;}
+.tr{ text-align:right;}
+.tc{ text-align:center;}
+.fl{ float:left;}
+.fr{ float:right;}
+.cb{ clear:both;}
+.cl{ clear:left;}
+.cr{ clear:right;}
+/*position*/
+.pa{ position:absolute;}
+.pr{ position:relative;}
+.pf{ position:fixed;}
+/*margin*/
+.m10{ margin:10px;}
+.m20{ margin:20px;}
+.mt10{ margin-top:10px;}
+.mt20{ margin-top:20px;}
+.mb10{ margin-bottom:10px;}
+.mb20{ margin-bottom:20px;}
+.mr10{ margin-right:10px;}
+.mr20{ margin-right:20px;}
+.ml10{ margin-left:10px;}
+.ml20{ margin-left:20px;}
+/*padding*/
+.p10{ padding:10px;}
+.p20{ padding:20px;}
+.pt10{ padding-top:10px;}
+.pt20{ padding-top:20px;}
+.pb10{ padding-bottom:10px;}
+.pb20{ padding-bottom:20px;}
+.pr10{ padding-right:10px;}
+.pr20{ padding-right:20px;}
+.pl10{ padding-left:10px;}
+.pl20{ padding-left:20px;}
+/*width*/
+.w1000{ width:1000px;}
+.w980{ width:980px;}
+.w960{ width:960px;}
+/*line-height*/
+.lh20{ line-height:20px;}
+.lh25{ line-height:25px;}
+.lh30{ line-height:30px;}
+.lh35{ line-height:35px;}
+
+a{ text-decoration:none;}
+a{hide-focus:expression(this.hideFocus=true); outline:none;}/*解决IE6链接的虚线问题*/
+html{ overflow-x:hidden;}/*防止出现横向滚动条*/ 
+. #prevTop{background:url(images/prevBtnTop.png) 0 0 no-repeat;}
+. #nextTop{background:url(images/nextBtnTop.png) 0 0 no-repeat;}

@@ -1,0 +1,218 @@
+@charset "utf-8";
+@import "public.css";
+
+/* CSS Document */
+
+
+
+
+html {
+		margin: center; /*font-size:29px;*/
+		font-family: "Microsoft YaHei", "微软雅黑", "Microsoft JhengHei", "Microsoft YaHei Bold", Arial, "宋体", "黑体";
+}
+#myframe {width:53.7rem;margin: auto; }
+.f510{ width:53.5rem;margin: auto;background-color: gray;border: 0.1rem;border-style: solid;border-color:#1FBC40 ;}
+.formspan{ height:2rem;width:6rem;float: left;background-color: blue;border: 0.006rem;border-style: solid;border-color:#1FBC37 ;margin-left: 0.5rem;display: block;
+          top: 0.3rem;position: relative;text-align: center;}
+#fspan {height: 2.5rem;text-align: center;width: auto;}
+
+.f117 {height:18rem;text-align: center;width: 100%;margin-top: 3rem;position: relative;float: left;}
+.f117 li {height: 3.8rem;text-align: center;width: 7rem;float: left;margin-left: 8rem;}
+.add{background-color: pink;}
+.f117 li img{height: 6rem;width:14rem;position: relative;float: left;}
+.a142 *{margin-top: 1rem;}
+.f320 {margin-left: 4rem;margin-bottom: 0.5rem;}
+.f320 button{margin-left: 6rem;}
+.f510 h2{margin-left: 6rem;margin-bottom:1rem;}
+.footer {
+		margin: 0 auto;
+		padding: 0;
+		width: 100%;
+		min-width: 53.7rem;
+		height: 11.5rem;
+		position: relative;
+		background-color: #7b7a7a;
+		border-top: #F00 solid 0.002rem;
+}
+
+.footerincon {
+		margin: 0 auto;
+		padding: 0;
+		width: 1200px;
+		height: 9rem;
+		position: relative;
+}
+
+.footerl {
+		float: left;
+		margin: 0;
+		padding: 0;
+		width: 9rem;
+		height:9rem;
+		position: relative;
+		background-image: url(../images1/logo4.png);
+		background-size: 9.6rem,9.6rem;
+		background-repeat: no-repeat;
+		background-position: bottom right;
+}
+
+.footercen {
+		float: left;
+		margin: 0;
+		padding: 0;
+		width:19.1rem;
+		height:9rem;
+		position: relative;
+}
+
+.footercen h1 {
+		font-size: 0.56rem;
+		font-weight: normal;
+		display: block;
+		width: 18rem;
+		height: 1rem;
+		margin-bottom: 1rem;
+		border-bottom: solid 2px #FF0000;
+}
+
+.footercen h2 {
+		font-size: 0.56rem;
+		font-weight: normal;
+}
+
+.footercen span {
+		font-size: 0.56rem;
+		font-weight: normal;
+}
+
+.footercen ul {
+		margin:  0;
+		padding: 0;
+		list-style: none;
+}
+
+.footercen ul li {
+		text-indent: 1.6rem;
+		height: 1.1rem;
+		margin: 0;
+		margin-bottom: 0.56rem;
+		padding: 0;
+		font-size:0.5rem;
+		line-height: 1.3rem;
+		width: 9.5rem;
+		float: left;
+		overflow: visible;
+}
+.footercen ul li a{
+		text-decoration:none;
+		color:#000;
+}
+.footercen ul li a:hover{
+		text-decoration:underline;
+		color:#F93;
+}
+.li1 {
+		background-image: url(../images1/Footer1.png);
+		background-size:1rem,1rem;
+		background-repeat: no-repeat;
+		background-position: left top;
+}
+
+.li2 {
+		background-image: url(../images1/Footer2.png);
+		background-size: 1rem,1rem;
+		background-repeat: no-repeat;
+		background-position: left top;
+}
+
+.li3 {
+		background-image: url(../images1/Footer3.png);
+		background-size: 1rem,1rem;
+		background-repeat: no-repeat;
+		background-position: left top;
+}
+
+.footerr {
+		float: left;
+		height: 9rem;
+		width: 17.1rem;
+		position: relative;
+}
+
+.footerr ul {
+		margin-top: 3.6rem;
+		padding: 0;
+		list-style: none;
+}
+
+.footerr ul li {
+		margin-left: 1.51rem;
+		margin-right: 0.83rem;
+		text-align: center;
+		height:4.6rem;
+		width:4.2rem;
+		float: left;
+}
+
+.footerr span { font-size: 0.4rem; }
+
+.footerr h3 {
+	    font-size: 0.4rem;
+		margin: 0;
+		margin-bottom: 0.1rem;
+		padding: 0;
+		float: right;
+		display: block;
+		width: 4.3rem;
+		height: 0.87rem;
+		border-bottom: solid 2px #990000;
+}
+
+.footerr h3 a {
+
+		color: #F60;
+		font-size: 0.4rem;
+}
+
+.footerr ul li a {
+		text-decoration: none;
+		color: #333;
+}
+.footerr  li img {
+		height: 3.8rem;
+		width: 3.8rem;
+}
+
+.footerr ul li a:hover {
+		text-decoration: underline;
+		color: red;
+}
+.mainli  {
+		height:12em;
+		width: 82em;
+		text-align: center;
+		
+}
+
+.mainli ul li  {
+	 border:0.1em solid #ff6600;
+		height: 10em;
+		width: 10em;
+		float: left;
+		margin-left: 6em;
+
+
+}
+.mainli ul li a img  {
+		height: 8.2em;
+		width: 10em;
+		
+}
+
+.intro  {
+	height: 3em;
+	font-size: 150%;
+	margin:0 30em;
+	width: 100%;
+		
+}
