@@ -1,0 +1,11 @@
+{ 
+    "token":"aokxf", 
+     "appID":"wx6837cd43e6b9a21f", 
+     "appScrect":"09be3ca55e04d8eaf25e809d888b6d22", 
+     "encodingAESKey":"XE3LwAHLQl5doPBQP2Ltfwo8he45J483gu5TQJiTwkb", 
+     "apiDomain":"https://api.weixin.qq.com/", 
+     "apiURL":{ 
+         "accessTokenApi":"%scgi-bin/token?grant_type=client_credential&appid=%s&secret=%s", 
+         "createMenu":"%scgi-bin/menu/create?access_token=%s" 
+     } 
+ } 

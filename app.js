@@ -13,7 +13,12 @@ var test=require('./routes/test');
 var db=require('./routes/db');
 var db1=require('./routes/123');
 var db2=require('./routes/getpro');
+
+wechat  = require('./weixin/weichat'); 
+var config = require('./config');
+//引入配置文件
 var app = express();
+var wechatApp = new wechat(config); //实例wechat 模块
 //跨域问题
 app.all('*', function(req, res, next) {
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -43,8 +48,22 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
+ app.get('/',function(req,res){ 
+     wechatApp.sign(req,res).then(wechatApp.sentmenus()); 
+ })
+ app.post('/',function(req,res){ 
+     wechatApp.handleMsg(req,res); 
+ })
+app.get('/getAccessToken',function(req,res){ 
+    wechatApp.accesstaken().then(function(data){ 
+         res.send(data); 
+    })
+})
 
+  
+
+
+app.use('/', index);
 app.use('/users', users);
 //post 方法
 
