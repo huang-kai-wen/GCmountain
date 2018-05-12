@@ -14,7 +14,7 @@ var db=require('./routes/db');
 var db1=require('./routes/123');
 var db2=require('./routes/getpro');
 
-wechat  = require('./weixin/weichat'); 
+var wechat  = require('./weixin/weichat'); 
 var config = require('./config');
 //引入配置文件
 var app = express();
@@ -48,17 +48,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(wechatApp.accesstaken())
+app.use(wechatApp.sentmenus())
  app.get('/',function(req,res){ 
-     wechatApp.sign(req,res).then(wechatApp.sentmenus()); 
+     wechatApp.sign(req,res)); 
  })
  app.post('/',function(req,res){ 
      wechatApp.handleMsg(req,res); 
  })
-app.get('/getAccessToken',function(req,res){ 
-    wechatApp.accesstaken().then(function(data){ 
-         res.send(data); 
-    })
-})
+
 
   
 

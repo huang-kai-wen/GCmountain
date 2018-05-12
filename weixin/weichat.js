@@ -10,6 +10,16 @@ const crypto = require('crypto'), //引入加密模块
   parseString = require('xml2js').parseString,//引入xml2js包 
          msg = require('./msg'),//引入消息处理模块 
 // CryptoGraphy = require('./cryptoGraphy'); //微信消息加解密模块 
+var api = {
+  
+  menu:{
+    create:"https://api.weixin.qq.com/cgi-bin"+'/menu/create?', //access_token=ACCESS_TOKEN 创建菜单
+    get:"https://api.weixin.qq.com/cgi-bin"+'/menu/get?', //access_token=ACCESS_TOKE 获取菜单,GET请求
+    delete:"https://api.weixin.qq.com/cgi-bin"+'/menu/delete?', //access_token=ACCESS_TOKEN 删除菜单,GET请求
+    getInfo:"https://api.weixin.qq.com/cgi-bin"+'get_current_selfmenu_info?' //access_token=ACCESS_TOKEN 获取自定义菜单配置接口
+  }
+}
+
  WeChat = function(config){
      //设置 WeChat 对象属性 config 
     this.config = config; 
@@ -89,13 +99,14 @@ const crypto = require('crypto'), //引入加密模块
      } 
  } 
 WeChat.prototype.sign = function(req,res){ 
+     var that=this
   return new Promise(function(resolve,reject){
        var signature = req.query.signature,//微信加密签名 
        timestamp = req.query.timestamp,//时间戳 
         nonce = req.query.nonce,//随机数 
         echostr = req.query.echostr;//随机字符串 
        //2.将token、timestamp、nonce三个参数进行字典序排序 
-        var array = [this.token,timestamp,nonce]; 
+        var array = [ that.token,timestamp,nonce]; 
          array.sort(); 
         //3.将三个参数字符串拼接成一个字符串进行sha1加密 
         var tempStr = array.join(''); 
@@ -139,15 +150,34 @@ WeChat.prototype.sign = function(req,res){
     }
   })
 }
-WeChat.prototype.sentmenus = function(){ 
-   var that = this; 
-   this.accesstaken().then(function(data){
-     var url = util.format(that.apiURL.createMenu,that.apiDomain,data);
-     that.requestPost(url,JSON.stringify(menus)).then(function(data){
+//WeChat.prototype.sentmenus = function(){ 
+ //  var that = this; 
+ //  this.accesstaken().then(function(data){
+  //   var url = util.format(that.apiURL.createMenu,that.apiDomain,data);
+   //  that.requestPost(url,JSON.stringify(menus)).then(function(data){
+   //    console.log(data);
+   //    }) 
+  // })
+//}
+WeChat.prototype.sentmenus  = function(){
+  var that = this;
+  return new Promise(function(resolve,reject){
+    that.accesstaken().then(function(data){
+      var url = api.menu.create + 'access_token=' + data;
+      that.requestPost(url,JSON.stringify(menus)).then(function(data){ 
+
        console.log(data);
-       }) 
-   })
+      });
+    });
+    if(err){ 
+          console.log(err); 
+           reject(err); 
+    }else{
+          resolve("OK");
+    } 
+  });
 }
+
 WeChat.prototype.handleMsg = function(req,res){
   var buffer = [],that = this;
   req.on('data',function(data){
