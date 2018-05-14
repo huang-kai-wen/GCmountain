@@ -47,11 +47,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-app.use(wechatApp.accesstaken())
-app.use(wechatApp.sentmenus())
+wechatApp.accesstaken()
+wechatApp.sentmenus()
  app.get('/',function(req,res){ 
-     wechatApp.sign(req,res)); 
+     wechatApp.sign(req,res); 
  })
  app.post('/',function(req,res){ 
      wechatApp.handleMsg(req,res); 

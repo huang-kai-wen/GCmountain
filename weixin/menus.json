@@ -33,7 +33,7 @@
     {  
       "type": "view",  
       "name": "马上投资",  
-      "url": "http://qiaole.sinaapp.com/"  
+      "url": "http://aokxf.com:3000/123.html"  
     },  
     {  
       "name": "送钱活动",  
@@ -41,7 +41,7 @@
        {  
          "type": "view",  
         "name": "注册送红包",  
-          "url": "http://qiaole.sinaapp.com/"  
+          "url": "http://aokxf.com:3000/123.html"  
        },    
              {  
           "type": "click",  
@@ -51,12 +51,12 @@
         {  
          "type": "view",  
           "name": "加入我们",  
-          "url": "http://qiaole.sinaapp.com/"  
+          "url": "http://aokxf.com:3000/123.html"  
         },  
         {  
          "type": "view",  
          "name": "APP下载",  
-         "url": "http://qiaole.sinaapp.com/"  
+         "url": "http://aokxf.com:3000/123.html"  
         }  
       ]  
     }  

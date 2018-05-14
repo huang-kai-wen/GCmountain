@@ -8,7 +8,7 @@ const crypto = require('crypto'), //引入加密模块
  accessTokenJson = require('./access_token'), //引入本地存储的 access_token 
        menus  = require('./menus'), //引入微信菜单配置 
   parseString = require('xml2js').parseString,//引入xml2js包 
-         msg = require('./msg'),//引入消息处理模块 
+         msg = require('./msg');//引入消息处理模块 
 // CryptoGraphy = require('./cryptoGraphy'); //微信消息加解密模块 
 var api = {
   
@@ -20,7 +20,7 @@ var api = {
   }
 }
 
- WeChat = function(config){
+var WeChat = function(config){
      //设置 WeChat 对象属性 config 
     this.config = config; 
      //设置 WeChat 对象属性 token 
@@ -130,24 +130,33 @@ WeChat.prototype.sign = function(req,res){
 } 
  WeChat.prototype.accesstaken = function(){ 
      var that = this; 
+
+  
    return new Promise(function(resolve,reject){
    var currentTime=new Date().getTime();
-   var url=util.format(that.apiURL.AccessTakenApi,that.apiDomain,that.appID,appScrect);
-    if(accessTakenJson.access_token===""||accessTakenJson.express_time<currentTim){
+   var url=util.format(that.apiURL.accessTokenApi,that.apiDomain,that.appID,that.appScrect);
+   
+   if(typeof(accessTokenJson.access_token)==undefined||accessTokenJson.access_token===""||accessTokenJson.express_time<currentTime){
      that.requestGet(url).then(function(data){
+      
       var result=JSON.parse(data)
-      if (data.indexof("errcode")<0) {
-        accessTakenJson.access_token=result.access_taken;
-        accessTakenJson.express_time=new Date().getTime()+(parseInt(result.express_in)-200)*1000;
-        fs.weiteFile("./weixin/access_taken.json",JSON.stringfy(accessTakenJson));
-        resolve(accessTakenJson.access_token)
-      }else{
+      if (data.indexOf("errcode")<0) {
+       
+        accessTokenJson.access_token=result.access_token;
+        accessTokenJson.express_time= new Date().getTime() + (parseInt(result.expires_in) - 200) * 1000;
+        fs.writeFile("./weixin/access_token.json",JSON.stringify(accessTokenJson));
+        resolve(accessTokenJson.access_token)
+   }else{
          resolve(result)
       };
      })
     }else{
-     resolve(accessTakenJson.access_token) 
+     resolve(accessTokenJson.access_token) 
     }
+    
+         
+           reject(err); 
+    
   })
 }
 //WeChat.prototype.sentmenus = function(){ 
@@ -163,18 +172,14 @@ WeChat.prototype.sentmenus  = function(){
   var that = this;
   return new Promise(function(resolve,reject){
     that.accesstaken().then(function(data){
+      console.log(data)
       var url = api.menu.create + 'access_token=' + data;
       that.requestPost(url,JSON.stringify(menus)).then(function(data){ 
 
        console.log(data);
       });
     });
-    if(err){ 
-          console.log(err); 
-           reject(err); 
-    }else{
-          resolve("OK");
-    } 
+    
   });
 }
 
@@ -240,7 +245,7 @@ WeChat.prototype.handleMsg = function(req,res){
             } 
         } 
     } 
-
+        res.send(reportMsg);
      }else{ 
                 //打印错误 
                 console.log(err); 
