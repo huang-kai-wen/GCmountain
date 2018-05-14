@@ -119,12 +119,7 @@ WeChat.prototype.sign = function(req,res){
         }else{ 
              res.send('mismatch'); 
         }
-        if(err){ 
-          console.log(err); 
-           reject(err); 
-         }else{
-          resolve("OK");
-         }
+        
   })
         
 } 
