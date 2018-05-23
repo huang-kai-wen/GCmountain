@@ -150,7 +150,7 @@ WeChat.prototype.sign = function(req,res){
     }
     
          
-           reject(err); 
+           reject("err"); 
     
   })
 }

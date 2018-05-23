@@ -49,12 +49,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 wechatApp.accesstaken()
 wechatApp.sentmenus()
- app.get('/',function(req,res){ 
-     wechatApp.sign(req,res); 
- })
- app.post('/',function(req,res){ 
-     wechatApp.handleMsg(req,res); 
- })
+// app.get('/',function(req,res){ 
+  //   wechatApp.sign(req,res); 
+// })
+// app.post('/',function(req,res){ 
+//     wechatApp.handleMsg(req,res); 
+// })
 
 
   
