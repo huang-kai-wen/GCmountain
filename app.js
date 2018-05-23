@@ -47,8 +47,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-wechatApp.accesstaken()
-wechatApp.sentmenus()
+//wechatApp.accesstaken()
+//wechatApp.sentmenus()
 // app.get('/',function(req,res){ 
   //   wechatApp.sign(req,res); 
 // })
