@@ -16,7 +16,8 @@ var api = {
     create:"https://api.weixin.qq.com/cgi-bin"+'/menu/create?', //access_token=ACCESS_TOKEN 创建菜单
     get:"https://api.weixin.qq.com/cgi-bin"+'/menu/get?', //access_token=ACCESS_TOKE 获取菜单,GET请求
     delete:"https://api.weixin.qq.com/cgi-bin"+'/menu/delete?', //access_token=ACCESS_TOKEN 删除菜单,GET请求
-    getInfo:"https://api.weixin.qq.com/cgi-bin"+'get_current_selfmenu_info?' //access_token=ACCESS_TOKEN 获取自定义菜单配置接口
+    getInfo:"https://api.weixin.qq.com/cgi-bin"+'get_current_selfmenu_info?', //access_token=ACCESS_TOKEN 获取自定义菜单配置接口
+    upload:"https://api.weixin.qq.com/cgi-bin"+'/media/upload?' //access_token=ACCESS_上传素材配置接口
   }
 }
 
@@ -164,6 +165,7 @@ WeChat.prototype.sign = function(req,res){
   // })
 //}
 WeChat.prototype.sentmenus  = function(){
+
   var that = this;
   return new Promise(function(resolve,reject){
     that.accesstaken().then(function(data){
@@ -177,6 +179,41 @@ WeChat.prototype.sentmenus  = function(){
     
   });
 }
+
+/** 
+  * 上传图片素材
+  */ 
+WeChat.prototype.uploadmaterial  = function(){
+   var form = { //构造表单
+    media:fs.createReadStream("/home/aok-xf/GCmountain/public/image/erweima.jpg")
+  }
+
+ var that = this;
+  return new Promise(function(resolve,reject){
+    that.accesstaken().then(function(data){
+
+      var url = api.menu.upload + 'access_token=' + data +"&type=image";
+console.log(url)
+
+request({url:url,method:'POST',formData:form,json:true},function(err,res,body){
+  if(err){console.log(err)
+   reject(err)
+
+  }else{
+ console.log(body.media)
+ resolve(body.media_id)
+}
+}).catch(function(error) {
+    console.log('error: ' + error);
+  });
+
+
+ });
+  });
+}
+
+
+
 
 WeChat.prototype.handleMsg = function(req,res){
   var buffer = [],that = this;
@@ -226,6 +263,7 @@ WeChat.prototype.handleMsg = function(req,res){
               reportMsg = msg.txtMsg(fromUser,toUser,'Node.js是一个开放源代码、跨平台的JavaScript语言运行环境，采用Google开发的V8运行代码,使用事件驱动、非阻塞和异步输入输出模型等技术来提高性能，可优化应用程序的传输量和规模。这些技术通常用于数据密集的事实应用程序'); 
                break; 
                case '文章': 
+              
                var contentArr = [ 
                {Title:"Node.js 微信自定义菜单",Description:"使用Node.js实现自定义微信菜单",PicUrl:"http://img.blog.csdn.net/20170605162832842?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaHZrQ29kZXI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast",Url:"http://blog.csdn.net/hvkcoder/article/details/72868520"}, 
                {Title:"Node.js access_token的获取、存储及更新",Description:"Node.js access_token的获取、存储及更新",PicUrl:"http://img.blog.csdn.net/20170528151333883?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaHZrQ29kZXI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast",Url:"http://blog.csdn.net/hvkcoder/article/details/72783631"}, 

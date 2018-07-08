@@ -16,6 +16,22 @@
      return xmlContent; 
  } 
  
+
+ /** 
+  * 回复图片消息 
+  * @param {String} toUser 接收用户 
+  * @param {String} fromUser 发送用户 
+  * @param {String}  content 发送消息 
+  */ 
+ exports.phoMsg = function(toUser,fromUser,content){ 
+     var xmlContent =  "<xml><ToUserName><![CDATA["+ toUser +"]]></ToUserName>"; 
+         xmlContent += "<FromUserName><![CDATA["+ fromUser +"]]></FromUserName>"; 
+         xmlContent += "<CreateTime>"+ new Date().getTime() +"</CreateTime>"; 
+         xmlContent += "<MsgType><![CDATA[image]]></MsgType>"; 
+         xmlContent += "<Image><MediaId>< ![CDATA["+content+"] ]></MediaId></Image></xml>"; 
+     return xmlContent; 
+ } 
+ 
  
  /** 
   * 回复图文消息 
