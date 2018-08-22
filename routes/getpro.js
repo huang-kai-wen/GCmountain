@@ -13,7 +13,7 @@ var dt=function dt(req,res){
     req.on('data',function(data){ 
         var obj=data;
         objd=JSON.parse(obj);
-        //console.log(objd.name);
+        //zconsole.log(objd.name);
         pool.getConnection(function(err,connection){
           if(err) {console.log('与数据库连接失败');  res.send("后台链接失败");}else{
           connection.query('SELECT product FROM vuedata WHERE username = ?',

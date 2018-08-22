@@ -7,13 +7,16 @@
   },
   "dependencies": {
     "body-parser": "~1.17.1",
+    "connect-history-api-fallback": "^1.5.0",
     "cookie-parser": "~1.4.3",
+    "crypto-js": "^3.1.9-1",
     "debug": "~2.6.3",
     "ejs": "~2.5.6",
     "express": "~4.15.2",
     "morgan": "~1.8.1",
     "mysql": "^2.15.0",
     "qs": "^6.5.1",
+    "request": "^2.88.0",
     "serve-favicon": "~2.4.2",
     "xml2js": "^0.4.19"
   }

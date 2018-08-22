@@ -1,65 +1,70 @@
 {  
   "button": [  
-   {  
-      "name": "我的账号",  
-      "sub_button": [  
-       {  
-         "type": "click",  
-         "name": "我的帐户",  
-         "key": "V1001_MY_ACCOUNT"  
-       },  
-       {  
-          "type": "click",  
-         "name": "已投项目",  
-          "key": "V1002_BID_PROJECTS"  
-        },  
-        {  
-         "type": "click",  
-          "name": "回款计划",  
-          "key": "V1003_RETURN_PLAN"         
-           },  
-        {  
-          "type": "click",  
-          "name": "交易明细",  
-         "key": "V1004_TRANS_DETAIL"  
-        },  
-        {  
-          "type": "click",  
-          "name": "注册/绑定",  
-          "key": "V1005_REGISTER_BIND"  
-        }  
-      ]  
-    },  
     {  
       "type": "view",  
-      "name": "马上投资",  
+      "name": "加入我们",  
       "url": "http://aokxf.com"  
     },  
-    {  
-      "name": "送钱活动",  
+   {  
+      "name": "招聘业务",  
+      "sub_button": [  
+        {  
+          "type": "view",  
+          "name": "招聘管理",  
+          "url": "http://aokxf.com"  
+        },  
+       {  
+          "type": "view",  
+          "name": "面试反馈",  
+          "url": "http://aokxf.com"  
+        }, 
+        {  
+          "type": "view",  
+          "name": "简历筛选",  
+          "url": "http://aokxf.com"  
+        },   
+       {  
+          "type": "view",  
+          "name": "面试日期",  
+          "url": "http://aokxf.com"  
+       },   
+        {  
+          "type": "view",  
+          "name": "撤销投递",  
+          "url": "http://aokxf.com"  
+       }  
+      ]  
+    },{  
+      "name": "人才推荐",  
          "sub_button": [  
        {  
-         "type": "view",  
-        "name": "注册送红包",  
-          "url": "http://aokxf.com"  
-       },    
-             {  
-          "type": "click",  
-         "name": "邀请好友一起赚钱",  
-         "key": "V1001_GOOD"  
-        },  
-        {  
-         "type": "view",  
-          "name": "加入我们",  
+          "type": "view",  
+          "name": "悬赏职位",  
           "url": "http://aokxf.com"  
         },  
+       {  
+          "type": "view",  
+          "name": "推荐记录",  
+          "url": "http://aokxf.com"  
+        }, 
         {  
-         "type": "view",  
-         "name": "APP下载",  
-         "url": "http://aokxf.com"  
-        }  
+          "type": "view",  
+          "name": "赏金记录",  
+          "url": "http://aokxf.com"  
+        },   
+       {  
+          "type": "view",  
+          "name": "注销绑定",  
+          "url": "http://aokxf.com"  
+       },   
+        {  
+          "type": "view",  
+          "name": "撤销投递",  
+          "url": "http://aokxf.com"  
+       }  
       ]  
-    }  
+    }    
+   
   ]  
 }  
 

@@ -6,13 +6,18 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs=require('fs');
 var querystring=require('querystring');
+var  history=require('connect-history-api-fallback');
+
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var adminlogin = require('./routes/users');
 var test=require('./routes/test');
 var db=require('./routes/db');
 var db1=require('./routes/123');
 var db2=require('./routes/getpro');
+var admin=require('./routes/admin');
+var MTadmin=require('./routes/MTadmin');
+var goods=require('./routes/goods');
 
 var wechat  = require('./weixin/weichat'); 
 var config = require('./config');
@@ -27,14 +32,16 @@ app.all('*', function(req, res, next) {
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     next();
 });
+app.use(history())
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //
-
-
+ app.post('/goods',goods);
+ app.post('/MTadmin',MTadmin);
+ app.post('/admin',admin);
  app.post('/123',db);
  app.post('/125',db2);
  app.post('/124',db1);
@@ -61,7 +68,7 @@ app.post('/sign',function(req,res){
 
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/adminlogin', adminlogin);
 //post 方法
 
 
